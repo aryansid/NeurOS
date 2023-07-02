@@ -31,14 +31,11 @@ export default function Home() {
         />
       </div>
 
-
       <div className={styles.grid}>
           <h2>
             Input Text Prompt:
           </h2>
-
           <input type='text' value={inputText} onChange={handleInput} />
-          <h1> Test: {inputText}</h1>
       </div>
     </main>
   )
