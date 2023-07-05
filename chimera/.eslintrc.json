@@ -1,4 +1,4 @@
 {
-  "extends": [["next", "prettier"], "next/babel"]
+  "extends": ["next", "prettier", "next/babel"]
 }
 
