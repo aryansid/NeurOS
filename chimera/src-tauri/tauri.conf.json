@@ -42,7 +42,7 @@
         "removeFile": true,
         "renameFile": true,
         "exists": true,
-        "scope": ["$DESKTOP/*", "$DESKTOP", "$DOCUMENT/*", "$DOCUMENT"]
+        "scope": ["$DESKTOP/*", "$DESKTOP", "$DOCUMENT/*", "$DOCUMENT", "$APPDATA", "$APPDATA/*"]
       }
     },
     "bundle": {
