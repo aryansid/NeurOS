@@ -1,0 +1,30 @@
+{
+  "applicationId": "js.neutralino.zero",
+  "version": "1.0.0",
+  "defaultMode": "window",
+  "documentRoot": "/next-src/build/",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "nativeAllowList": [
+    "app.*",
+    "os.*"
+  ],
+  "modes": {
+    "window": {
+      "title": "chimera",
+      "width": 800,
+      "height": 500,
+      "minWidth": 400,
+      "minHeight": 200,
+      "icon": "/next-src/public/favicon.ico" 
+    }
+  },
+  "cli": {
+    "binaryName": "chimera",
+    "resourcesPath": "/next-src/build/",
+    "extensionsPath": "/extensions/",
+    "binaryVersion": "4.10.0",
+    "clientVersion": "3.8.2"
+  }
+}
