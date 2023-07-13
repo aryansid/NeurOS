@@ -9,13 +9,23 @@ export default function Home() {
   const [outputText, setOutputText] = useState('');
   const [show, setShow] = useState(false);
 
-  //note that this route should be moved at some point
   const handleExecuteCommand = async () => {   
-    const command = new Command(inputText, ['-l']);
+    const firstSpaceIndex = inputText.indexOf(' ');
+    const commandName = inputText.substring(0, firstSpaceIndex);
+    
+    let command; //new Command(commandName, [inputText.substring(firstSpaceIndex+1)]);
+
+    if (inputText.split(' ').length == 2) {
+      command = new Command(commandName + "WithoutArgs");
+    } else {
+      command = new Command(commandName, ["add", "."]);
+    }
 
     const output = await command.execute(); 
 
-    setOutputText(output.stdout);
+    console.log(output.stderr);
+
+    setOutputText(output.stderr);
     setShow(true);
   } 
 
