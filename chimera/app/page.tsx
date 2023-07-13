@@ -17,8 +17,12 @@ export default function Home() {
 
     const output = await command.execute(); 
 
+    if (output.stderr) {
+      setOutputText(output.stderr);
+    } else {
+      setOutputText(output.stdout);
+    }
 
-    setOutputText(output.stdout);
     setShow(true);
   } 
 
