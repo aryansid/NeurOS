@@ -2,7 +2,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from './page.module.scss';
-import { Command } from '@tauri-apps/api/shell'
+import { Command } from '@tauri-apps/api/shell';
+import inputParser from '@/lib/utils/inputParser';
 
 export default function Home() {
   const [inputText, setInputText] = useState('');
@@ -10,22 +11,14 @@ export default function Home() {
   const [show, setShow] = useState(false);
 
   const handleExecuteCommand = async () => {   
-    const firstSpaceIndex = inputText.indexOf(' ');
-    const commandName = inputText.substring(0, firstSpaceIndex);
-    
-    let command; //new Command(commandName, [inputText.substring(firstSpaceIndex+1)]);
+    const {commandString, argList} = inputParser(inputText);
 
-    if (inputText.split(' ').length == 2) {
-      command = new Command(commandName + "WithoutArgs");
-    } else {
-      command = new Command(commandName, ["add", "."]);
-    }
+    const command = new Command(commandString, argList);
 
     const output = await command.execute(); 
 
-    console.log(output.stderr);
 
-    setOutputText(output.stderr);
+    setOutputText(output.stdout);
     setShow(true);
   } 
 

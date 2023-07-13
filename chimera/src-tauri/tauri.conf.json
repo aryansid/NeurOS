@@ -30,8 +30,18 @@
           "args": true
           },
           {
+          "name": "cd",
+          "cmd": "cd",
+          "args": true
+          },          
+          {
           "name": "git",
           "cmd": "git",
+          "args": true
+          },
+          {
+          "name": "pwd",
+          "cmd": "pwd",
           "args": true
           }
           ]
