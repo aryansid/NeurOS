@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styles from './page.module.scss';
 import { Command } from '@tauri-apps/api/shell';
-import inputParser from '@/lib/utils/inputParser';
+import { inputParser } from '@/lib/utils/inputParser';
 
 export default function Home() {
   const [inputText, setInputText] = useState('');
