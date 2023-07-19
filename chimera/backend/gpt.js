@@ -1,7 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
@@ -33,7 +33,7 @@ If you can add a few tests for these that would be great.
 The function fails in some cases, but it works well in 
 others. We can talk about how to write some of these tests
 (using mocha) and also if you can write these files in ts
-going forward that would be great!
+going forward that would be great.
 */
 
 // getLinuxCommand("List all the files on my ")
