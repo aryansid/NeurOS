@@ -24,7 +24,16 @@ export default function Home() {
     }
 
     setShow(true);
-  } 
+  };
+
+  const handleEnter = async (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      await handleExecuteCommand();
+
+      setInputText('');
+    }
+  };
+
 
   return (
     <main className={styles.main}>
@@ -49,16 +58,16 @@ export default function Home() {
         <h2>
           Input Text Prompt:
         </h2>
-        <input type='text' value={inputText} onChange={event => setInputText(event.target.value)}  />
+        <input 
+          placeholder="Type a task and press enter..."
+          type='text' 
+          value={inputText} 
+          onChange={event => setInputText(event.target.value)}  
+          onKeyDown={handleEnter}
+        />
       </div>
 
-      <button onClick={handleExecuteCommand} className={styles.button}>
-        Execute Command
-      </button>
-
       {show && <p>{outputText}</p>}
-
-      
 
     </main>
   )
