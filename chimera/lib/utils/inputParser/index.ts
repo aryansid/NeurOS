@@ -11,9 +11,9 @@ export function argListParser(input: string): string[] {
         result.push(currentWord);
         currentWord = "";
       }
-    } else if (char === "'" && !insideQuotes) {
+    } else if (char === "'" || char == "`" && !insideQuotes) {
       insideQuotes = true;
-    } else if (char === "'" && insideQuotes) {
+    } else if (char === "'" || char === "`" && insideQuotes) {
       insideQuotes = false;
       result.push(currentWord);
       currentWord = "";
