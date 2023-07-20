@@ -23,7 +23,7 @@ describe('Input Parsing', function () {
 
     it('should return argList with multiple strings while retaining internal string', function () {
       const input = "commit -m 'I am committing a random message' ";
-      const expected = ['commit', '-m', "'I am committing a random message'"];
+      const expected = ['commit', '-m', "I am committing a random message"];
       const result = argListParser(input);
 
       expect(result).to.deep.equal(expected);
@@ -49,7 +49,7 @@ describe('Input Parsing', function () {
 
     it('should return an object with multiple arguments in arg list (w string retention)', function () {
       const input = "git commit -m 'I am committing a random message' ";
-      const expected = {commandString: 'git', argList: ['commit', '-m', "'I am committing a random message'"]};
+      const expected = {commandString: 'git', argList: ['commit', '-m', "I am committing a random message"]};
       const result = inputParser(input);
 
       expect(result).to.deep.equal(expected);

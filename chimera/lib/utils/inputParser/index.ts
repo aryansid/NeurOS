@@ -13,10 +13,8 @@ export function argListParser(input: string): string[] {
       }
     } else if (char === "'" && !insideQuotes) {
       insideQuotes = true;
-      currentWord += char;
     } else if (char === "'" && insideQuotes) {
       insideQuotes = false;
-      currentWord += char;
       result.push(currentWord);
       currentWord = "";
     } else {
